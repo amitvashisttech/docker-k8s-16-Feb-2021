@@ -68,3 +68,58 @@
    68  cd Docker/
    69  ls
    70  history > Day1_History.txt 
+   71  cd ..
+   72  git add . ; git commit -m "Docker Images"; git push 
+   73  ls
+   74  docker run ubuntu:16.04 echo "Hello World" 
+   75  docker run -it ubuntu:16.04
+   76  docker run -it ubuntu
+   77  docker ps 
+   78  docker ps -a 
+   79  docker run -itd ubuntu
+   80  docker ps 
+   81  docker ps -a
+   82  docker run -itd --name job1  ubuntu
+   83  docker run -itd --name job2  ubuntu
+   84  docker ps 
+   85  docker attach job1
+   86  docker run -itd --name job2  ubuntu
+   87  docker run -itd --name job3  ubuntu
+   88  docker os 
+   89  docker ps 
+   90  docker kill  job3
+   91  docker stop  job2
+   92  docker ps 
+   93  docker ps -a 
+   94  docker ps 
+   95  docker ps -q
+   96  docker kill $(docker ps -q)
+   97  docker ps 
+   98  docker ps -a
+   99  ls
+  100  docker start job3
+  101  docker ps 
+  102  docker start job2
+  103  docker start job1
+  104  docker ps 
+  105  docker attach job1
+  106  ls
+  107  docker ps 
+  108  docker start job1 
+  109  docker attach job1
+  110  ls
+  111  docker ps -a 
+  112  docker ps -aq
+  113  docker kill $(docker ps -q)
+  114  docker rm $(docker ps -aq)
+  115  docker ps -a 
+  116  ls
+  117  docker run -itd --name job3  ubuntu
+  118  docker ps 
+  119  docker inspect job3
+  120  ls
+  121  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' job3
+  122  ls
+  123  cd Docker/
+  124  ls
+  125  history > Day1_History.txt 
