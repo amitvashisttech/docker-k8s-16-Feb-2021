@@ -1,0 +1,31 @@
+    1  cat /etc/os-release 
+    2  git clone https://github.com/amitvashisttech/docker-k8s-16-Feb-2021.git
+    3  ls
+    4  cd docker-k8s-16-Feb-2021/
+    5  ls
+    6  git pull 
+    7  ls
+    8  cd Docker/
+    9  ls
+   10  cd 00-Setup/
+   11  ls
+   12  vim install-docker.sh 
+   13  ls
+   14  ./install-docker.sh 
+   15  ls
+   16  cd .
+   17  cd 
+   18  docker version 
+   19  systemctl status docker 
+   20  docker run busybox echo "Welcome to the world of containers"
+   21  docker run busybox echo "Welcome to the world of containers - Test 2"
+   22  docker images 
+   23  docker ps 
+   24  docker ps -a
+   25  ls
+   26  cd docker-k8s-16-Feb-2021/
+   27  ls
+   28  cd Docker/
+   29  ls
+   30  history 
+   31  history > Day1_History.txt
