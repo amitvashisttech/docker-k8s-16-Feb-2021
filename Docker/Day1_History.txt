@@ -85,3 +85,94 @@
    85  cd ..
    86  ls
    87  history > Day1_History.txt 
+   88  cd ..
+   89  ls
+   90  git add . ; git commit -m "Dockerfile"; git push 
+   91  history 
+   92  ls
+   93  cd Docker/
+   94  ls
+   95  cd 01-DockerImages/
+   96  ls
+   97  mkdir python-webapp
+   98  ls
+   99  cd python-webapp/
+  100  ls
+  101  vim app.py
+  102  ls
+  103  vim req.txt
+  104  vim app.py
+  105  ls
+  106  vim Dockerfile
+  107  ls
+  108  docker build -t python-webapp . 
+  109  docker ps 
+  110  docker images 
+  111  docker run -d --name python-webapp-test1 python-webapp
+  112  docker ps 
+  113  cat Dockerfile 
+  114  ls
+  115  docker ps 
+  116  docker inspect python-webapp-test1
+  117  curl 172.17.0.8
+  118  curl 172.17.0.8/amit
+  119  curl 172.17.0.8/info
+  120  docker ps 
+  121  ls
+  122  vim app.py 
+  123  ls
+  124  docker build -t python-webapp:v2 . 
+  125  ls
+  126  docker run -d --name python-webapp-test2 python-webapp:v2
+  127  docker ps 
+  128  curl 172.17.0.8/info
+  129  curl 172.17.0.9/info
+  130  curl 172.17.0.9:8080/info
+  131  cat app.py 
+  132  curl 172.17.0.9:8081/info
+  133  docker ps 
+  134  vim Dockerfile 
+  135  docker build -t python-webapp:v3 . 
+  136  docker images 
+  137  docker run -d --name python-webapp-test3 python-webapp:v3
+  138  docker ps 
+  139  curl 172.17.0.10:8081/info
+  140  curl 172.17.0.10/info
+  141  ls
+  142  vim Dockerfile 
+  143  ls
+  144  docker run -d --name python-webapp-test3 python-webapp:v4
+  145  docker build -t python-webapp:v4 . 
+  146  docker images 
+  147  docker run -d --name python-webapp-test4 python-webapp:v4
+  148  docker ps 
+  149  ls
+  150  docker images 
+  151  docker kill  $(docker ps -q) 
+  152  docker rm  $(docker ps -q) 
+  153  docker rm  $(docker ps -qa) 
+  154  ls
+  155  cd 
+  156  ls
+  157  docker images 
+  158  docker inspect python-webapp:latest
+  159  docker history python-webapp:latest
+  160  docker run -d --name python-webapp-1 python-webapp
+  161  docker ps 
+  162  docker run -d --name python-webapp-2 -p 8080:80 python-webapp
+  163  docker ps 
+  164  netstat -tulnp 
+  165  history 
+  166  docker run -d --name python-webapp-3 -P python-webapp
+  167  docker ps 
+  168  netstat -tulnp 
+  169  docker images 
+  170  docker run -d --name python-webapp-4 -P python-webapp:v3
+  171  docker ps 
+  172  netstat -tulnp 
+  173  ls
+  174  cd docker-k8s-16-Feb-2021/
+  175  ls
+  176  cd Docker/
+  177  ls
+  178  history > Day1_History.txt 
