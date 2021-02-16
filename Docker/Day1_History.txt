@@ -1,125 +1,87 @@
     1  cat /etc/os-release 
-    2  git clone https://github.com/amitvashisttech/docker-k8s-16-Feb-2021.git
-    3  ls
-    4  cd docker-k8s-16-Feb-2021/
-    5  ls
-    6  git pull 
+    2  docker run -it centos/7 
+    3  docker run -it centos:7 
+    4  docker ps 
+    5  docker inspect 7ea0c1015eb6
+    6  curl 172.17.0.4
     7  ls
-    8  cd Docker/
-    9  ls
-   10  cd 00-Setup/
-   11  ls
-   12  vim install-docker.sh 
-   13  ls
-   14  ./install-docker.sh 
-   15  ls
-   16  cd .
-   17  cd 
-   18  docker version 
-   19  systemctl status docker 
-   20  docker run busybox echo "Welcome to the world of containers"
-   21  docker run busybox echo "Welcome to the world of containers - Test 2"
-   22  docker images 
-   23  docker ps 
-   24  docker ps -a
-   25  ls
-   26  cd docker-k8s-16-Feb-2021/
+    8  docker ps 
+    9  docker attach 7ea0c1015eb6
+   10  curl 172.17.0.4
+   11  docker attach 7ea0c1015eb6
+   12  ls
+   13  docker ps 
+   14  docker commit -p -m "My First WebServer - CENTOS 8" 7ea0c1015eb6 centos-webserver:v1
+   15  docker ps 
+   16  docker images 
+   17  docker run -itd centos-webserver:v1
+   18  docker ps 
+   19  curl 172.17.0.5
+   20  docker attach 7ea0c1015eb6
+   21  ls
+   22  docker commit -p -m "My First WebServer - CENTOS 8" 7ea0c1015eb6 centos-webserver:v2
+   23  docker images 
+   24  docker run -itd --name centos-web-1 centos-webserver:v2
+   25  docker ps 
+   26  curl 172.17.0.6
    27  ls
-   28  cd Docker/
-   29  ls
-   30  history 
-   31  history > Day1_History.txt
-   32  ls
-   33  cd ..
-   34  ls
-   35  git add . ; git commit -m "Docker"; git push 
-   36  ls
-   37  cd Docker/
-   38  ls
-   39  cat Day1_History.txt 
-   40  cd /var/run/docker/
-   41* 
-   42  cd ..
-   43  ls
-   44  cd .
-   45  cd 
-   46  cd /var/lib/docker/
-   47  ls
-   48  cd 
-   49  docker run busybox echo "Welcome to the world of containers - Test 2"
-   50  docker pull amitvashist7/k8s-tiny-web
-   51  docker images 
-   52  docker pull amitvashist7/k8s-tiny-web:2
-   53  docker images 
-   54  docker pull ubuntu
-   55  docker images 
-   56  docker pull ubuntu:16.04
-   57  docker images 
-   58  docker pull amitvashist7/apache-ex4
-   59  docker pull amitvashist7/apache-ex4:latest
-   60  docker login 
-   61  docker pull amitvashist7/apache-ex4:latest
-   62  docker logout 
-   63  docker pull amitvashist7/apache-ex4:latest
-   64  docker images 
-   65  ls
-   66  cd docker-k8s-16-Feb-2021/
+   28  docker kill $(docker ps -q) 
+   29  docker rm $(docker ps -q) 
+   30  docker rm $(docker ps -aq) 
+   31  docker images 
+   32  docker run -itd --name centos-web-1 centos-webserver:v2
+   33  docker run -itd --name centos-web-2 centos-webserver:v2
+   34  docker run -itd --name centos-web-3 centos-webserver:v2
+   35  docker ps 
+   36  curl 172.17.0.2
+   37  curl 172.17.0.3
+   38  curl 172.17.0.4
+   39  curl 172.17.0.5
+   40  ld
+   41  ls
+   42  docker run -it --name ubuntu-test1 ubuntu:16.04
+   43  curl 172.17.0.5
+   44  ls
+   45  cd docker-k8s-16-Feb-2021/
+   46  ls
+   47  cd Docker/
+   48  ls
+   49  mkdir 01-DockerImages
+   50  ls
+   51  cd 01-DockerImages/
+   52  ls
+   53  mkdir apache
+   54  ls
+   55  cd apache/
+   56  ls
+   57  vim Dockerfile 
+   58  ls
+   59  docker build -t ubuntu-webserver:v1 . 
+   60  docker images 
+   61  ls
+   62  docker images 
+   63  docker run -d --name ubuntu-test-2 ubuntu-webserver:v1
+   64  docker ps 
+   65  docker inspect ubuntu-test-2
+   66  curl 172.17.0.6
    67  ls
-   68  cd Docker/
-   69  ls
-   70  history > Day1_History.txt 
-   71  cd ..
-   72  git add . ; git commit -m "Docker Images"; git push 
-   73  ls
-   74  docker run ubuntu:16.04 echo "Hello World" 
-   75  docker run -it ubuntu:16.04
-   76  docker run -it ubuntu
-   77  docker ps 
-   78  docker ps -a 
-   79  docker run -itd ubuntu
-   80  docker ps 
-   81  docker ps -a
-   82  docker run -itd --name job1  ubuntu
-   83  docker run -itd --name job2  ubuntu
-   84  docker ps 
-   85  docker attach job1
-   86  docker run -itd --name job2  ubuntu
-   87  docker run -itd --name job3  ubuntu
-   88  docker os 
-   89  docker ps 
-   90  docker kill  job3
-   91  docker stop  job2
-   92  docker ps 
-   93  docker ps -a 
-   94  docker ps 
-   95  docker ps -q
-   96  docker kill $(docker ps -q)
-   97  docker ps 
-   98  docker ps -a
-   99  ls
-  100  docker start job3
-  101  docker ps 
-  102  docker start job2
-  103  docker start job1
-  104  docker ps 
-  105  docker attach job1
-  106  ls
-  107  docker ps 
-  108  docker start job1 
-  109  docker attach job1
-  110  ls
-  111  docker ps -a 
-  112  docker ps -aq
-  113  docker kill $(docker ps -q)
-  114  docker rm $(docker ps -aq)
-  115  docker ps -a 
-  116  ls
-  117  docker run -itd --name job3  ubuntu
-  118  docker ps 
-  119  docker inspect job3
-  120  ls
-  121  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' job3
-  122  ls
-  123  cd Docker/
-  124  ls
-  125  history > Day1_History.txt 
+   68  vim index.html
+   69  curl 172.17.0.4
+   70  curl 172.17.0.4 > index.html 
+   71  vim index.html 
+   72  ls
+   73  vim Dockerfile 
+   74  docker build -t ubuntu-webserver:v2 . 
+   75  docker images 
+   76  docker run -d --name ubuntu-test-3 ubuntu-webserver:v2
+   77  curl 172.17.0.4
+   78  curl 172.17.0.5
+   79  curl 172.17.0.5/info.html
+   80  curl 172.17.0.6/info.html
+   81  curl 172.17.0.7/info.html
+   82  ls
+   83  cd ..
+   84  ls
+   85  cd ..
+   86  ls
+   87  history > Day1_History.txt 
