@@ -216,3 +216,51 @@
   216  wc -l Day2_History.txt 
   217  history | wc -l 
   218  history > Day2_History.txt 
+  219  cd ..
+  220  ls
+  221  git add . ; git commit -m "Docker Network"; git push 
+  222  cd /var/run/docker/
+  223  ls
+  224  cd netns/
+  225  ls
+  226  cd ..
+  227  ls
+  228  cd ..
+  229  ls
+  230  ls -ltr netns
+  231  ip netns 
+  232  ls
+  233  cd ..
+  234  cd 
+  235  ls
+  236  cd docker-k8s-16-Feb-2021/
+  237  ls
+  238  docker network ls 
+  239  docker network create --help
+  240  docker network create --driver bridge --subnet 172.28.5.0/24 --ip-range=172.28.5.0/24 --gateway=172.28.5.254 mybr0 
+  241  docker ps 
+  242  docker network ls 
+  243  docker network inspect mybr0
+  244  history 
+  245  docker run -d --name mybr0-container-1 --network mybr0 -P python-webapp:v4
+  246  docker ps 
+  247  ip netns 
+  248  ip -n adf8bbc1f8dc link 
+  249  ip -n adf8bbc1f8dc addr 
+  250  docker ps 
+  251  docker inspect mybr0-container-1
+  252  ip addr 
+  253  docker network create mynet
+  254  docker network ls 
+  255  docker network inspect mynet
+  256  docker run -d --name mynet-container-2 --network mynet -P python-webapp:v4
+  257  docker ps 
+  258  ip addr 
+  259  ip netns 
+  260  ip -n b91793b5adac link 
+  261  ip -n b91793b5adac addr 
+  262  docker ps 
+  263  ls
+  264  cd Docker/
+  265  ls
+  266  history > Day2_History.txt 
