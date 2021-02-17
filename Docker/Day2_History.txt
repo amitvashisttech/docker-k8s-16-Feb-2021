@@ -105,3 +105,114 @@
   105  cd Docker/
   106  ls
   107  history > Day2_History.txt
+  108  cd ..
+  109  ls
+  110  git add . ; git commit -m "Docker Volumes"; git push 
+  111  ls
+  112  docker
+  113  docker kill $(docker ps -q) 
+  114  docker rm $(docker ps -qa) 
+  115  ls
+  116  ip addr 
+  117  docker network ls 
+  118  docker network inspect f921142cc7cf
+  119  docker network inspect e48a5558d7eb
+  120  docker network inspect 8e3aff189c0c
+  121  arp
+  122  route -n 
+  123  cd /var/run/docker/
+  124  ls
+  125  cd netns/
+  126  ls
+  127  ip netns 
+  128  ln -s /var/run/docker/netns /var/run
+  129  cd 
+  130  ls
+  131  docker ps 
+  132  docker network ls 
+  133  docker images 
+  134  docker run -d --name default-container python-webapp:v4 
+  135  docker ps 
+  136  ip addr 
+  137  ip netns 
+  138  docker inspect default-container
+  139  docker inspect default-container | grep -i 5a71a0820cac
+  140  ip -n 5a71a0820ca link 
+  141  ip -n 5a71a0820cac link 
+  142  ip addr 
+  143  ip -n 5a71a0820cac link 
+  144  ip -n 5a71a0820cac addr 
+  145  ip -n 5a71a0820cac route 
+  146  docker run -d --name default-container-2 python-webapp:v4 
+  147  ip link 
+  148  ip netns 
+  149  ip -n 538942c22b8a link 
+  150  ip -n 538942c22b8a addr 
+  151  docker ps 
+  152  docker inspect default-container-2| grep -i 538942c22b8a
+  153  docker inspect default-container-2
+  154  docker ps 
+  155  curl 172.17.0.2:8081
+  156  curl 172.17.0.2:8081/info
+  157  curl 172.17.0.3:8081/info
+  158  curl localhost:8081/info
+  159  ip addr 
+  160  netstat -tulnp 
+  161  iptables -L
+  162  docker run -d --name default-container-3 -P  python-webapp:v4 
+  163  netstat -tulnp 
+  164  iptables -L
+  165  systemctl status docker
+  166  docker run -d --name default-container-4 -P  python-webapp:v3
+  167  netstat -tulnp 
+  168  docker ps 
+  169  systemctl status docker
+  170  iptables -L
+  171  iptables -t nat
+  172  docker kill $(docker ps -q)
+  173  docker rm $(docker ps -aq)
+  174  ls
+  175  docker network ls 
+  176  ip netns 
+  177  docker ps 
+  178  docker run -d --name none-container-4 -P --network none  python-webapp:v3
+  179  docker ps 
+  180  ip netns 
+  181* ip 
+  182  ip -n 510dc8e5e0aa route 
+  183  ip -n 510dc8e5e0aa link
+  184  ip -n 510dc8e5e0aa addr 
+  185  ip link 
+  186  docker run -d --name none-container-5 -P --network none  python-webapp:v3
+  187  docker run -d --name none-container-6 -P --network none  python-webapp:v3
+  188  ip link 
+  189  ip netns 
+  190  docker network ls 
+  191  netstat -tulnp 
+  192  docker run -d --name host-container-1 --network host  python-webapp:v3
+  193  docker ps 
+  194  netstat -tulnp 
+  195  docker run -d --name host-container-2 --network host  python-webapp:v3
+  196  netstat -tulnp 
+  197  docker ps 
+  198  docker run -d --name host-container-3 --network host  python-webapp:v3
+  199  docker ps 
+  200  docker ps -a 
+  201  docker log host-container-2
+  202  docker logs host-container-2
+  203  docker logs host-container-3
+  204  docker ps 
+  205  curl localhost:8081
+  206  curl localhost:8081/info
+  207  docker kill  $(docker ps -qa)
+  208  docker rm  $(docker ps -qa)
+  209  ls
+  210  docker network ls 
+  211  cd docker-k8s-16-Feb-2021/
+  212  ls
+  213  cd Docker/
+  214  ls
+  215  history 
+  216  wc -l Day2_History.txt 
+  217  history | wc -l 
+  218  history > Day2_History.txt 
