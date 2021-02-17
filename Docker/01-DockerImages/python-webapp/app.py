@@ -9,9 +9,9 @@ def hello():
     return "Hello World!"
 
 
-@app.route("/amit")
+@app.route("/home")
 def hello_amit():
-    return "Hello EveryOne from Amit Vashist"
+    return "<h2>Welcome to docker based python WebApp</h2>"
 
 @app.route("/info")
 def hello_info():

@@ -264,3 +264,92 @@
   264  cd Docker/
   265  ls
   266  history > Day2_History.txt 
+  267  cd ..
+  268  ls
+  269  git add . ; git commit -m "Docker Custom Network"; git push 
+  270  ls
+  271  docker images 
+  272  docker logout 
+  273  docker push python-webapp:v4
+  274  docker login 
+  275  docker push python-webapp:v4
+  276  ls
+  277  docker images 
+  278  docker tag 80ab1ed352fb amitvashist7/python-webapp:v1
+  279  docker images 
+  280  docker push amitvashist7/python-webapp:v1 
+  281  ls
+  282  cd Docker/
+  283  ls
+  284  cd 01-DockerImages/python-webapp/
+  285  ls
+  286  vim app.py 
+  287  ls
+  288  cd ..
+  289  ls
+  290  cd python-webapp/
+  291  ls
+  292  docker images 
+  293  docker build -t "amitvashist7/python-webapp:v2" .
+  294  ls
+  295  docker images 
+  296  docker run -d  -P amitvashist7/python-webapp:v2 
+  297  docker ps 
+  298  docker push amitvashist7/python-webapp:v2
+  299  docker images 
+  300  docker history amitvashist7/python-webapp:v2
+  301  docker inspect  amitvashist7/python-webapp:v2
+  302  docker ps 
+  303  docker logs 4a9c5888bcfd
+  304  docker logs -f 4a9c5888bcfd
+  305  ls
+  306  docker run --name test -d busybox sh -c "while true;do $(echo date); sleep 2; done"
+  307  docker ps 
+  308  docker logs b5e7fea95e3f
+  309  docker logs -f  b5e7fea95e3f
+  310  docker events 
+  311  ls
+  312  docker events --since '10m'
+  313  docker events --since '2021-02-16'
+  314  docker events --filter 'event=stop'
+  315* docker events --filter 'container=test7' 
+  316  docker events --filter 'event=stop'  --filter 'event=kill'
+  317  cd 
+  318  ls
+  319  docker images 
+  320  docker save amitvashist7/python-webapp:v2 > python-webapp_v1.tar
+  321  ls
+  322  file python-webapp_v1.tar 
+  323  docker save -o ubuntu-webserver.tar ubuntu-webserver:v2
+  324  ls
+  325  tar -tvf python-webapp_v1.tar 
+  326  docker images 
+  327  docker images -q
+  328  docker rmi $(docker images -q)
+  329  docker ps 
+  330  docker ps -a 
+  331  docker rm $(docker ps -aq) 
+  332  docker rmi $(docker images -q)
+  333  docker rmi $(docker images -q) --force
+  334  docker images 
+  335  ls
+  336  docker load < python-webapp_v1.tar
+  337  docker images 
+  338  docker run -d --name restore-test-1 -P amitvashist7/python-webapp:v2
+  339  docker ps 
+  340  docker load --input ubuntu-webserver.tar
+  341  docker images 
+  342  docker run -d --name restore-test-2 -P ubuntu-webserver:v2
+  343  docker ps 
+  344  docker run -d --name restore-test-3 -p 80:80 ubuntu-webserver:v2
+  345  docker ps 
+  346  docker exec -it a5092f9ea8f3 ls /var/www/html
+  347  docker exec -it a5092f9ea8f3 ps -ef 
+  348  docker exec -it a5092f9ea8f3 
+  349  docker exec -it a5092f9ea8f3 /bin/bash
+  350  ls
+  351  cd docker-k8s-16-Feb-2021/
+  352  ls
+  353  cd Docker/
+  354  ls
+  355  history > Day2_History.txt 
