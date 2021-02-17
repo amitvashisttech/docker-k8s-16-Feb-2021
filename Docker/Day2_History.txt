@@ -1,0 +1,107 @@
+    1  history 
+    2  docker ps 
+    3  docker images 
+    4  ls
+    5  docker kill $(docker ps -q)
+    6  docker rm $(docker ps -q)
+    7  docker rm $(docker ps -qa)
+    8  docker ps 
+    9  docker ps -a 
+   10  docker container ls 
+   11  docker container ls -a 
+   12  docker volume ls 
+   13  docker volume ls -a
+   14  docker volume ls 
+   15  docker volume create my-vol
+   16  docker volume ls 
+   17  docker volume inspect my-vol
+   18  docker images 
+   19  docker run -d --name devtestvol1  -v my-vol:/var/www/html/myvol -P ubuntu-webserver:v2 
+   20  docker ps 
+   21  docker kill devtestvol1
+   22  docker rm devtestvol1
+   23  ls
+   24  docker run -d --name devtestvol1  -v my-vol:/var/www/html/myvol -p 8080:80 ubuntu-webserver:v2 
+   25  docker ps 
+   26  docker inspect devtestvol1
+   27  cd /var/lib/docker
+   28  ls
+   29  cd volumes/
+   30  ls
+   31  cd my-vol/
+   32  ls
+   33  cd _data/
+   34  ls
+   35  hostname >> abc.html
+   36  date >> abc.html 
+   37  ls
+   38  cat abc.html 
+   39  vim abc.html 
+   40  cd 
+   41  ls
+   42  docker ps 
+   43  docker kill devtestvol1 ; docker rm devtestvol1
+   44  docker ps -a 
+   45  docker volume ls 
+   46  cd - 
+   47  ls
+   48  cat abc.html 
+   49  cd - 
+   50  docker run -d --name devtestvol1  -v my-vol:/var/www/html/myvol -p 8080:80 ubuntu-webserver:v2 
+   51  docker run -d --name devtestvol2  -v my-vol:/var/www/html/myvol -p 8081:80 ubuntu-webserver:v2 
+   52  docker ps 
+   53  cd - 
+   54  ls
+   55  vim abc.html 
+   56  cd ls
+   57  cd 
+   58  docker images 
+   59  docker run -it --name voltest-1 -v /var/log/amit ubuntu:16.04
+   60  docker ps 
+   61  docker inspect voltest-1
+   62  docker attach voltest-1
+   63  docker volume ls 
+   64  docker inspect 76434aa4f90503482ab56d09977bc91e59c520e512f3d0573c1d91b7ed592c01
+   65  cd /var/lib/docker/volumes/
+   66  ls
+   67  cd 76434aa4f90503482ab56d09977bc91e59c520e512f3d0573c1d91b7ed592c01/
+   68  ls
+   69  cd _data/
+   70  ls
+   71  cat hello.txt 
+   72  history > history.txt
+   73  ls
+   74  cd
+   75  docker attach voltest-1
+   76  ls
+   77  cd docker-k8s-16-Feb-2021/
+   78  ls
+   79  pwd
+   80  cd 
+   81  docker run -it --name voltest-2 -v /root/docker-k8s-16-Feb-2021:/var/log/amit ubuntu:16.04
+   82  ls
+   83  docker run -it --name voltest-3 -v /root/docker-k8s-16-Feb-2021:/var/log/amit:ro ubuntu:16.04
+   84  ls
+   85  docker ps 
+   86  docker volume ls 
+   87  docker run -itd --name datacontainer -v /var/lib/myapp -v /var/log/myapp -v /etc/myapp -v /usr/share/myapp busybox /bin/sh
+   88  docker ps 
+   89  docker volume ls 
+   90  docker inspect datacontainer
+   91  docker ps 
+   92  docker run -itd --name dataconsumer-node1 --volume-from datacontainer ubuntu:16.04
+   93  docker run -itd --name dataconsumer-node1 --volumes-from datacontainer ubuntu:16.04
+   94  docker ps 
+   95  docker inspect dataconsumer-node1
+   96  docker run -itd --name dataconsumer-node2 --volumes-from datacontainer ubuntu:16.04
+   97  docker run -itd --name dataconsumer-node3 --volumes-from datacontainer ubuntu:16.04
+   98  docker run -itd --name dataconsumer-node4 --volumes-from datacontainer ubuntu:16.04
+   99  docker ps 
+  100  history 
+  101  docker volume ls 
+  102  ls
+  103  cd docker-k8s-16-Feb-2021/
+  104  ls
+  105  cd Docker/
+  106  ls
+  107  history > Day2_History.txt
