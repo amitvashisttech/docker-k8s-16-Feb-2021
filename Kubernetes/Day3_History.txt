@@ -262,3 +262,98 @@
   262  cd Kubernetes/
   263  ls
   264  history > Day3_History.txt 
+  265  git add . ; git commit -m "Deployment"; git push 
+  266  ls
+  267  cd 04-Deployment/
+  268  ls
+  269  rm -rf History* 
+  270  ls
+  271  kubectl get depoy 
+  272  kubectl get deploy 
+  273  kubectl delete -f deployment.yaml 
+  274  ls
+  275  vim helloworld-v2.yaml 
+  276  kubectl apply -f helloworld-v2.yaml 
+  277  kubectl describe deploy helloworld-2-deployment
+  278  kubectl set image deploy helloworld-2-deployment k8s-demo=amitvashist7/k8s-tiny-web:3 --record
+  279  kubectl set image deploy helloworld-2-deployment k8s-demo=amitvashist7/k8s-tiny-web:2 --record
+  280  kubectl scale --replicas=3 deploy helloworld-2-deployment
+  281  kubectl set image deploy helloworld-2-deployment k8s-demo=amitvashist7/k8s-tiny-web --record
+  282  kubectl set image deploy helloworld-2-deployment k8s-demo=amitvashist7/k8s-tiny-web:2 --record
+  283  ls
+  284  kubectl delete -f helloworld-v2.yaml
+  285  ls
+  286  vim helloworld-v3.yaml 
+  287  kubectl apply -f helloworld-v3.yaml 
+  288  kubectl set image deploy helloworld-3-deployment k8s-demo=amitvashist7/k8s-tiny-web:2 --record
+  289  kubectl set image deploy helloworld-3-deployment k8s-demo=amitvashist7/k8s-tiny-web:4 --record
+  290  kubectl delete -f helloworld-v3.yaml 
+  291  ls
+  292  cp -rf helloworld-v* /root/
+  293  ls
+  294  cd ..
+  295  ls
+  296  cd ..
+  297  ls
+  298  git pull 
+  299  ls
+  300  cp -rf /root/helloworld-v* Kubernetes/04-Deployment/
+  301  ls
+  302  git add . ; git commit -m "Deployment"; git push 
+  303  ls
+  304  cd Kubernetes/
+  305  ls
+  306  kubectl get deploy 
+  307  kubectl create -f 04-Deployment/deployment.yaml 
+  308  ls
+  309  kubectl get pods 
+  310  kubectl get service 
+  311  kubectl get svc 
+  312  kubectl expose deploy helloworld-deployment
+  313  kubectl get svc 
+  314  curl 10.109.66.141
+  315  kubectl edit svc helloworld-deployment
+  316  kubectl get svc helloworld-deployment
+  317  kubectl get svc 
+  318  kubectl get pods --show-labels
+  319  kubectl get pods -o wide 
+  320  kubectl describe svc helloworld-deployment
+  321  kubectl get pods -o wide 
+  322  kubectl get svc 
+  323  curl ip-172-31-5-225:31294
+  324  curl ip-172-31-11-15:31294
+  325* 
+  326  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web --record
+  327  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2 --record
+  328  kubectl get svc 
+  329  ls
+  330  cd ..
+  331  git pull 
+  332  ls
+  333  cd Kubernetes/
+  334  ls
+  335  cd 05-Service/
+  336  ls
+  337  cat helloworld.yaml 
+  338  kubectl delete deploy,svc --all
+  339  ls
+  340  kubectl create -f helloworld.yaml 
+  341  kubectl get deploy 
+  342  kubectl get pods 
+  343  kubectl get deploy 
+  344  ls
+  345  vim service.yaml 
+  346  cat helloworld.yaml 
+  347  kubectl create -f service.yaml 
+  348  kubectl get svc 
+  349  ls
+  350  vim app-service.yaml 
+  351  ls
+  352  cat app-service.yaml 
+  353  ls
+  354  kubectl create -f app-service.yaml
+  355  kubectl get pods,svc 
+  356  kubectl get pods -o wide 
+  357  cd ..
+  358  ls
+  359  history > Day3_History.txt 
