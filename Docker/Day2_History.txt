@@ -1,0 +1,355 @@
+    1  history 
+    2  docker ps 
+    3  docker images 
+    4  ls
+    5  docker kill $(docker ps -q)
+    6  docker rm $(docker ps -q)
+    7  docker rm $(docker ps -qa)
+    8  docker ps 
+    9  docker ps -a 
+   10  docker container ls 
+   11  docker container ls -a 
+   12  docker volume ls 
+   13  docker volume ls -a
+   14  docker volume ls 
+   15  docker volume create my-vol
+   16  docker volume ls 
+   17  docker volume inspect my-vol
+   18  docker images 
+   19  docker run -d --name devtestvol1  -v my-vol:/var/www/html/myvol -P ubuntu-webserver:v2 
+   20  docker ps 
+   21  docker kill devtestvol1
+   22  docker rm devtestvol1
+   23  ls
+   24  docker run -d --name devtestvol1  -v my-vol:/var/www/html/myvol -p 8080:80 ubuntu-webserver:v2 
+   25  docker ps 
+   26  docker inspect devtestvol1
+   27  cd /var/lib/docker
+   28  ls
+   29  cd volumes/
+   30  ls
+   31  cd my-vol/
+   32  ls
+   33  cd _data/
+   34  ls
+   35  hostname >> abc.html
+   36  date >> abc.html 
+   37  ls
+   38  cat abc.html 
+   39  vim abc.html 
+   40  cd 
+   41  ls
+   42  docker ps 
+   43  docker kill devtestvol1 ; docker rm devtestvol1
+   44  docker ps -a 
+   45  docker volume ls 
+   46  cd - 
+   47  ls
+   48  cat abc.html 
+   49  cd - 
+   50  docker run -d --name devtestvol1  -v my-vol:/var/www/html/myvol -p 8080:80 ubuntu-webserver:v2 
+   51  docker run -d --name devtestvol2  -v my-vol:/var/www/html/myvol -p 8081:80 ubuntu-webserver:v2 
+   52  docker ps 
+   53  cd - 
+   54  ls
+   55  vim abc.html 
+   56  cd ls
+   57  cd 
+   58  docker images 
+   59  docker run -it --name voltest-1 -v /var/log/amit ubuntu:16.04
+   60  docker ps 
+   61  docker inspect voltest-1
+   62  docker attach voltest-1
+   63  docker volume ls 
+   64  docker inspect 76434aa4f90503482ab56d09977bc91e59c520e512f3d0573c1d91b7ed592c01
+   65  cd /var/lib/docker/volumes/
+   66  ls
+   67  cd 76434aa4f90503482ab56d09977bc91e59c520e512f3d0573c1d91b7ed592c01/
+   68  ls
+   69  cd _data/
+   70  ls
+   71  cat hello.txt 
+   72  history > history.txt
+   73  ls
+   74  cd
+   75  docker attach voltest-1
+   76  ls
+   77  cd docker-k8s-16-Feb-2021/
+   78  ls
+   79  pwd
+   80  cd 
+   81  docker run -it --name voltest-2 -v /root/docker-k8s-16-Feb-2021:/var/log/amit ubuntu:16.04
+   82  ls
+   83  docker run -it --name voltest-3 -v /root/docker-k8s-16-Feb-2021:/var/log/amit:ro ubuntu:16.04
+   84  ls
+   85  docker ps 
+   86  docker volume ls 
+   87  docker run -itd --name datacontainer -v /var/lib/myapp -v /var/log/myapp -v /etc/myapp -v /usr/share/myapp busybox /bin/sh
+   88  docker ps 
+   89  docker volume ls 
+   90  docker inspect datacontainer
+   91  docker ps 
+   92  docker run -itd --name dataconsumer-node1 --volume-from datacontainer ubuntu:16.04
+   93  docker run -itd --name dataconsumer-node1 --volumes-from datacontainer ubuntu:16.04
+   94  docker ps 
+   95  docker inspect dataconsumer-node1
+   96  docker run -itd --name dataconsumer-node2 --volumes-from datacontainer ubuntu:16.04
+   97  docker run -itd --name dataconsumer-node3 --volumes-from datacontainer ubuntu:16.04
+   98  docker run -itd --name dataconsumer-node4 --volumes-from datacontainer ubuntu:16.04
+   99  docker ps 
+  100  history 
+  101  docker volume ls 
+  102  ls
+  103  cd docker-k8s-16-Feb-2021/
+  104  ls
+  105  cd Docker/
+  106  ls
+  107  history > Day2_History.txt
+  108  cd ..
+  109  ls
+  110  git add . ; git commit -m "Docker Volumes"; git push 
+  111  ls
+  112  docker
+  113  docker kill $(docker ps -q) 
+  114  docker rm $(docker ps -qa) 
+  115  ls
+  116  ip addr 
+  117  docker network ls 
+  118  docker network inspect f921142cc7cf
+  119  docker network inspect e48a5558d7eb
+  120  docker network inspect 8e3aff189c0c
+  121  arp
+  122  route -n 
+  123  cd /var/run/docker/
+  124  ls
+  125  cd netns/
+  126  ls
+  127  ip netns 
+  128  ln -s /var/run/docker/netns /var/run
+  129  cd 
+  130  ls
+  131  docker ps 
+  132  docker network ls 
+  133  docker images 
+  134  docker run -d --name default-container python-webapp:v4 
+  135  docker ps 
+  136  ip addr 
+  137  ip netns 
+  138  docker inspect default-container
+  139  docker inspect default-container | grep -i 5a71a0820cac
+  140  ip -n 5a71a0820ca link 
+  141  ip -n 5a71a0820cac link 
+  142  ip addr 
+  143  ip -n 5a71a0820cac link 
+  144  ip -n 5a71a0820cac addr 
+  145  ip -n 5a71a0820cac route 
+  146  docker run -d --name default-container-2 python-webapp:v4 
+  147  ip link 
+  148  ip netns 
+  149  ip -n 538942c22b8a link 
+  150  ip -n 538942c22b8a addr 
+  151  docker ps 
+  152  docker inspect default-container-2| grep -i 538942c22b8a
+  153  docker inspect default-container-2
+  154  docker ps 
+  155  curl 172.17.0.2:8081
+  156  curl 172.17.0.2:8081/info
+  157  curl 172.17.0.3:8081/info
+  158  curl localhost:8081/info
+  159  ip addr 
+  160  netstat -tulnp 
+  161  iptables -L
+  162  docker run -d --name default-container-3 -P  python-webapp:v4 
+  163  netstat -tulnp 
+  164  iptables -L
+  165  systemctl status docker
+  166  docker run -d --name default-container-4 -P  python-webapp:v3
+  167  netstat -tulnp 
+  168  docker ps 
+  169  systemctl status docker
+  170  iptables -L
+  171  iptables -t nat
+  172  docker kill $(docker ps -q)
+  173  docker rm $(docker ps -aq)
+  174  ls
+  175  docker network ls 
+  176  ip netns 
+  177  docker ps 
+  178  docker run -d --name none-container-4 -P --network none  python-webapp:v3
+  179  docker ps 
+  180  ip netns 
+  181* ip 
+  182  ip -n 510dc8e5e0aa route 
+  183  ip -n 510dc8e5e0aa link
+  184  ip -n 510dc8e5e0aa addr 
+  185  ip link 
+  186  docker run -d --name none-container-5 -P --network none  python-webapp:v3
+  187  docker run -d --name none-container-6 -P --network none  python-webapp:v3
+  188  ip link 
+  189  ip netns 
+  190  docker network ls 
+  191  netstat -tulnp 
+  192  docker run -d --name host-container-1 --network host  python-webapp:v3
+  193  docker ps 
+  194  netstat -tulnp 
+  195  docker run -d --name host-container-2 --network host  python-webapp:v3
+  196  netstat -tulnp 
+  197  docker ps 
+  198  docker run -d --name host-container-3 --network host  python-webapp:v3
+  199  docker ps 
+  200  docker ps -a 
+  201  docker log host-container-2
+  202  docker logs host-container-2
+  203  docker logs host-container-3
+  204  docker ps 
+  205  curl localhost:8081
+  206  curl localhost:8081/info
+  207  docker kill  $(docker ps -qa)
+  208  docker rm  $(docker ps -qa)
+  209  ls
+  210  docker network ls 
+  211  cd docker-k8s-16-Feb-2021/
+  212  ls
+  213  cd Docker/
+  214  ls
+  215  history 
+  216  wc -l Day2_History.txt 
+  217  history | wc -l 
+  218  history > Day2_History.txt 
+  219  cd ..
+  220  ls
+  221  git add . ; git commit -m "Docker Network"; git push 
+  222  cd /var/run/docker/
+  223  ls
+  224  cd netns/
+  225  ls
+  226  cd ..
+  227  ls
+  228  cd ..
+  229  ls
+  230  ls -ltr netns
+  231  ip netns 
+  232  ls
+  233  cd ..
+  234  cd 
+  235  ls
+  236  cd docker-k8s-16-Feb-2021/
+  237  ls
+  238  docker network ls 
+  239  docker network create --help
+  240  docker network create --driver bridge --subnet 172.28.5.0/24 --ip-range=172.28.5.0/24 --gateway=172.28.5.254 mybr0 
+  241  docker ps 
+  242  docker network ls 
+  243  docker network inspect mybr0
+  244  history 
+  245  docker run -d --name mybr0-container-1 --network mybr0 -P python-webapp:v4
+  246  docker ps 
+  247  ip netns 
+  248  ip -n adf8bbc1f8dc link 
+  249  ip -n adf8bbc1f8dc addr 
+  250  docker ps 
+  251  docker inspect mybr0-container-1
+  252  ip addr 
+  253  docker network create mynet
+  254  docker network ls 
+  255  docker network inspect mynet
+  256  docker run -d --name mynet-container-2 --network mynet -P python-webapp:v4
+  257  docker ps 
+  258  ip addr 
+  259  ip netns 
+  260  ip -n b91793b5adac link 
+  261  ip -n b91793b5adac addr 
+  262  docker ps 
+  263  ls
+  264  cd Docker/
+  265  ls
+  266  history > Day2_History.txt 
+  267  cd ..
+  268  ls
+  269  git add . ; git commit -m "Docker Custom Network"; git push 
+  270  ls
+  271  docker images 
+  272  docker logout 
+  273  docker push python-webapp:v4
+  274  docker login 
+  275  docker push python-webapp:v4
+  276  ls
+  277  docker images 
+  278  docker tag 80ab1ed352fb amitvashist7/python-webapp:v1
+  279  docker images 
+  280  docker push amitvashist7/python-webapp:v1 
+  281  ls
+  282  cd Docker/
+  283  ls
+  284  cd 01-DockerImages/python-webapp/
+  285  ls
+  286  vim app.py 
+  287  ls
+  288  cd ..
+  289  ls
+  290  cd python-webapp/
+  291  ls
+  292  docker images 
+  293  docker build -t "amitvashist7/python-webapp:v2" .
+  294  ls
+  295  docker images 
+  296  docker run -d  -P amitvashist7/python-webapp:v2 
+  297  docker ps 
+  298  docker push amitvashist7/python-webapp:v2
+  299  docker images 
+  300  docker history amitvashist7/python-webapp:v2
+  301  docker inspect  amitvashist7/python-webapp:v2
+  302  docker ps 
+  303  docker logs 4a9c5888bcfd
+  304  docker logs -f 4a9c5888bcfd
+  305  ls
+  306  docker run --name test -d busybox sh -c "while true;do $(echo date); sleep 2; done"
+  307  docker ps 
+  308  docker logs b5e7fea95e3f
+  309  docker logs -f  b5e7fea95e3f
+  310  docker events 
+  311  ls
+  312  docker events --since '10m'
+  313  docker events --since '2021-02-16'
+  314  docker events --filter 'event=stop'
+  315* docker events --filter 'container=test7' 
+  316  docker events --filter 'event=stop'  --filter 'event=kill'
+  317  cd 
+  318  ls
+  319  docker images 
+  320  docker save amitvashist7/python-webapp:v2 > python-webapp_v1.tar
+  321  ls
+  322  file python-webapp_v1.tar 
+  323  docker save -o ubuntu-webserver.tar ubuntu-webserver:v2
+  324  ls
+  325  tar -tvf python-webapp_v1.tar 
+  326  docker images 
+  327  docker images -q
+  328  docker rmi $(docker images -q)
+  329  docker ps 
+  330  docker ps -a 
+  331  docker rm $(docker ps -aq) 
+  332  docker rmi $(docker images -q)
+  333  docker rmi $(docker images -q) --force
+  334  docker images 
+  335  ls
+  336  docker load < python-webapp_v1.tar
+  337  docker images 
+  338  docker run -d --name restore-test-1 -P amitvashist7/python-webapp:v2
+  339  docker ps 
+  340  docker load --input ubuntu-webserver.tar
+  341  docker images 
+  342  docker run -d --name restore-test-2 -P ubuntu-webserver:v2
+  343  docker ps 
+  344  docker run -d --name restore-test-3 -p 80:80 ubuntu-webserver:v2
+  345  docker ps 
+  346  docker exec -it a5092f9ea8f3 ls /var/www/html
+  347  docker exec -it a5092f9ea8f3 ps -ef 
+  348  docker exec -it a5092f9ea8f3 
+  349  docker exec -it a5092f9ea8f3 /bin/bash
+  350  ls
+  351  cd docker-k8s-16-Feb-2021/
+  352  ls
+  353  cd Docker/
+  354  ls
+  355  history > Day2_History.txt 
