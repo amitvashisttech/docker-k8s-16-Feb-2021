@@ -109,3 +109,156 @@
   109  ls
   110  history Day3_History.txt
   111  history > Day3_History.txt
+  112  cd ..
+  113  git add . ; git commit -m "RC"; git push 
+  114  git config credential.helper store
+  115  kubectl get pods 
+  116  kubectl run hello-k8s --image-nginx --port=80
+  117  kubectl run hello-k8s --image=nginx --port=80
+  118  kubectl get pods 
+  119  kubectl describe pod hello-k8s
+  120  docker images 
+  121  exit
+  122  kubectl describe pod hello-k8s
+  123  kubectl api-resources 
+  124  curl 172.31.13.160:8001/api/v1/pods | grep -A50 hello-k8s 
+  125  curl 172.31.13.160:8001/api
+  126  curl 172.31.13.160:8001/apis
+  127  curl 172.31.13.160:8001/apis/app
+  128  curl 172.31.13.160:8001/apis/app/v1
+  129  curl 172.31.13.160:8001/app/v1
+  130  curl 172.31.13.160:8001/apps/v1
+  131  kubectl api-resources 
+  132  curl 172.31.13.160:8001/apis/apps/v1
+  133  ls
+  134  cd docker-k8s-16-Feb-2021/
+  135  ls
+  136  git pull 
+  137  ls
+  138  cd Kubernetes/
+  139  ls
+  140  cd 04-Deployment/
+  141  ls
+  142  vim deployment.yaml 
+  143  ls
+  144  kubectl create -f deployment.yaml
+  145  kubectl get deployment
+  146  kubectl get pods 
+  147  kubectl get deployment,rs,pod 
+  148  ls
+  149  kubectl get deployment
+  150  kubectl scale --replicas=10 deploy helloworld-deployment
+  151  ls
+  152  cat deployment.yaml 
+  153  ls
+  154  kubectl apply -f deployment.yaml
+  155  ls
+  156  kubectl get pods 
+  157  kubectl scale --replicas=10 deploy helloworld-deployment
+  158  kubectl get pods 
+  159  vim deployment.yaml 
+  160  ls
+  161  kubectl apply -f deployment.yaml 
+  162  kubectl get pods 
+  163  kubectl get pods c
+  164  kubectl edit deploy helloworld-deployment
+  165  kubectl get pods 
+  166  kubectl get deploy
+  167  kubectl get deploy -o yaml
+  168  cd 
+  169  ls
+  170  kubectl get deploy -o json
+  171  kubectl get deploy -o name
+  172  kubectl get deploy -o yaml
+  173  kubectl get deploy -o yaml > abc.yaml
+  174  l
+  175  vim abc.yaml 
+  176  ls
+  177  cd - 
+  178  ls
+  179  kubectl delete -f deployment.yaml 
+  180  kubectl get deploy 
+  181  kubectl get pod 
+  182  cd 
+  183  kubectl delete pod hello-k8s
+  184  ls
+  185  kubectl get pods 
+  186  ls
+  187  kubectl create -f abc.yaml --dry-run
+  188  kubectl get deploy 
+  189  kubectl create -f abc.yaml 
+  190  kubectl get deploy 
+  191  kubectl get deploy,pod
+  192  kubectl run hello-k8s --image=nginx --port=80 --dry-run
+  193  kubectl get pods 
+  194  kubectl run hello-k8s --image=nginx --port=80 --dry-run -o yaml
+  195  kubectl run hello-k8s --image=nginx --port=80 --dry-run -o yaml > hello-k8s-pod.yaml
+  196  ls
+  197  cat hello-k8s-pod.yaml 
+  198  kubectl create -f hello-k8s-pod.yaml 
+  199  kubectl get pods 
+  200  cat hello-k8s-pod.yaml 
+  201  sed -i "s/hello-k8s/hey-nginx/g" hello-k8s-pod.yaml 
+  202  cat hello-k8s-pod.yaml 
+  203  kubectl create -f hello-k8s-pod.yaml 
+  204  kubectl get pods 
+  205  kubectl get deploy 
+  206  kubectl describe deploy helloworld-deployment
+  207  kubectl scale --replicas=4 deploy helloworld-deployment
+  208  kubectl describe deploy helloworld-deployment
+  209  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web
+  210  kubectl describe deploy helloworld-deployment
+  211  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2
+  212  kubectl describe deploy helloworld-deployment
+  213  kubectl get rs 
+  214  kubectl describe rs helloworld-deployment-7f9ddb7f6f
+  215  kubectl get rs 
+  216  kubectl describe rs helloworld-deployment-d4d9bcc7f
+  217  kubectl scale --replicas=12 deploy helloworld-deployment
+  218  kubectl get rs 
+  219  kubectl describe rs Annotations:    deployment.kubernetes.io/desired-replicas: 4
+  220  kubectl describe rs helloworld-deployment-d6cb886bf
+  221  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3
+  222  kubectl get rs 
+  223  kubectl rollout status deploy helloworld-deployment
+  224  kubectl rollout history deploy helloworld-deployment
+  225  kubectl get rs 
+  226  kubectl rollout undo deploy helloworld-deployment
+  227  kubectl rollout status deploy helloworld-deployment
+  228  kubectl rollout history deploy helloworld-deployment
+  229  kubectl get rs 
+  230  kubectl describe rs 
+  231  kubectl rollout history deploy helloworld-deployment
+  232  kubectl rollout undo deploy helloworld-deployment
+  233  kubectl rollout status deploy helloworld-deployment
+  234  kubectl rollout history deploy helloworld-deployment
+  235  kubectl get rs 
+  236  kubectl describe rs helloworld-deployment-5995bff66d
+  237  kubectl rollout history deploy helloworld-deployment
+  238  kubectl rollout history deploy helloworld-deployment --revsion=1
+  239  kubectl rollout history deploy helloworld-deployment --revision=1
+  240  kubectl rollout history deploy helloworld-deployment --revision=2
+  241  kubectl rollout history deploy helloworld-deployment --revision=5
+  242  kubectl rollout history deploy helloworld-deployment --revision=
+  243  kubectl rollout history deploy helloworld-deployment --revision=6
+  244  kubectl rollout history deploy helloworld-deployment
+  245  kubectl rollout undo deploy helloworld-deployment --to-revision=1
+  246  kubectl rollout status deploy helloworld-deployment
+  247  kubectl rollout history deploy helloworld-deployment
+  248  kubectl rollout history deploy helloworld-deployment --revision=7
+  249  ls
+  250  cd docker-k8s-16-Feb-2021/
+  251  ls
+  252  cd Kubernetes/
+  253  ls
+  254  cd ..
+  255  ls
+  256  kubectl rollout history deploy helloworld-deployment
+  257  kubectl rollout history deploy helloworld-deployment --revision=1
+  258  kubectl rollout history deploy helloworld-deployment --revision=7
+  259  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3 --record
+  260  kubectl rollout history deploy helloworld-deployment
+  261  ls
+  262  cd Kubernetes/
+  263  ls
+  264  history > Day3_History.txt 
