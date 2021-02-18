@@ -8,15 +8,16 @@
 ## First clone this repository on your windows machine.
 
 ```
-git clone https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+git clone https://github.com/amitvashisttech/docker-k8s-16-Feb-2021.git
 ``` 
+
+## You can skip the below steps in case you have a cloud instances. 
 
 ## Now provision three virtual machines with following commands:
 
 ```
-cd devops-stackstrom-dxc-2021-Jan-04/02-K8s/
+cd docker-k8s-16-Feb-2021/Kubernetes/
 vagrant.exe up
-
 
 vagrant.exe status
 Current machine states:
@@ -36,8 +37,8 @@ Note :
 ```
 vagrant.exe ssh master
 sudo su - 
-git clone To https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
-cd devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/00-Setup
+git clone To https://github.com/amitvashisttech/docker-k8s-16-Feb-2021.git
+cd docker-k8s-16-Feb-2021/Kubernetes/00-Setup
 sh install-k8s-master-node.sh
 
 ---
@@ -76,8 +77,8 @@ k8s-master   Ready    master   5m6s   v1.18.0
 ```
 vagrant.exe ssh woker1
 sudo su - 
-git clone To https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
-cd devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/00-Setup
+git clone To https://github.com/amitvashisttech/docker-k8s-16-Feb-2021.git
+cd docker-k8s-16-Feb-2021/07-Kubernetes/00-Setup
 sh install-k8s-worker-node.sh
 ```
 
@@ -88,19 +89,18 @@ kubeadm join 172.31.0.100:6443 --token mr74fn.m4upjko4cfm5uwmz --discovery-token
 
 ## Let check the kubernetes cluster nodes status & details
 ```
-root@k8s-master:~# kubectl get nodes 
-NAME            STATUS   ROLES    AGE     VERSION
-k8s-master      Ready    master   8m45s   v1.18.0
-k8s-worker-01   Ready    <none>   2m1s    v1.18.0
-k8s-worker-02   Ready    <none>   24s     v1.18.0
-
-root@k8s-master:~# kubectl get nodes -o wide 
-NAME            STATUS   ROLES    AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
-k8s-master      Ready    master   13m     v1.18.0   10.128.0.7    <none>        Ubuntu 16.04.7 LTS   4.15.0-1088-gcp   docker://20.10.0
-k8s-worker-01   Ready    <none>   6m24s   v1.18.0   10.128.0.8    <none>        Ubuntu 16.04.7 LTS   4.15.0-1088-gcp   docker://20.10.0
-k8s-worker-02   Ready    <none>   4m47s   v1.18.0   10.128.0.9    <none>        Ubuntu 16.04.7 LTS   4.15.0-1088-gcp   docker://20.10.0
-root@k8s-master:~# 
-
+root@ip-172-31-13-160:~ # kubectl get nodes
+NAME               STATUS   ROLES    AGE     VERSION
+ip-172-31-11-15    Ready    <none>   8m7s    v1.18.0
+ip-172-31-13-160   Ready    master   15m     v1.18.0
+ip-172-31-5-225    Ready    <none>   4m58s   v1.18.0
 ```
 
-
+```
+root@ip-172-31-13-160:~# kubectl get nodes -o wide
+NAME               STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+ip-172-31-11-15    Ready    <none>   8m11s   v1.18.0   172.31.11.15    <none>        Ubuntu 16.04.7 LTS   4.4.0-1117-aws   docker://20.10.3
+ip-172-31-13-160   Ready    master   15m     v1.18.0   172.31.13.160   <none>        Ubuntu 16.04.7 LTS   4.4.0-1117-aws   docker://20.10.3
+ip-172-31-5-225    Ready    <none>   5m2s    v1.18.0   172.31.5.225    <none>        Ubuntu 16.04.7 LTS   4.4.0-1117-aws   docker://20.10.3
+root@ip-172-31-13-160:~/docker-k8s-16-Feb-2021/Kubernetes/00-Setup#
+```
