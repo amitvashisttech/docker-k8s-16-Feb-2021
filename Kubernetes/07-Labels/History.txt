@@ -1,0 +1,75 @@
+  301  ls
+  302  kubectl get nodes 
+  303  kubectl get nodes --show-labels
+  304  ls
+  305  cd devops-stackstrom-dxc-2021-Jan-04/
+  306  ls
+  307  git pull 
+  308  ls
+  309  cd 07-Kubernetes/
+  310  ls
+  311  rm 1
+  312  ls
+  313  cp -rf 05-Deployment 07-Labels
+  314  cd 07-Labels/
+  315  ls
+  316  rm -rf History* 
+  317  ls
+  318  cat deployment.yaml 
+  319  ls
+  320  vim deployment.yaml 
+  321  ls
+  322  kubectl create -f deployment.yaml 
+  323  kubectl get pods 
+  324  kubectl get pods -o wide 
+  325  ls
+  326  vim helloworld-v2.yaml 
+  327  ls
+  328  cp -rf deployment.yaml helloworld-v2.yaml 
+  329  vim helloworld-v2.yaml 
+  330  ls
+  331  kubectl get pods -o wide 
+  332  kubectl create -f helloworld-v2.yaml 
+  333  kubectl get pods -o wide 
+  334  kubectl describe pod helloworld-v2-deployment-5bd449644d-kx8lm
+  335  ls
+  336  kubectl get nodes --show-labels 
+  337  kubectl label nodes worker2 hardware=virtual
+  338  kubectl get nodes --show-labels 
+  339  kubectl get pods -o wide 
+  340  ls
+  341  cp -rf helloworld-v2.yaml helloworld-v3.yaml 
+  342  vim helloworld-v3.yaml 
+  343  ls
+  344  kubectl create -f helloworld-v3.yaml 
+  345  kubectl get pods -o wide 
+  346  kubectl label nodes worker1 hardware=virtual
+  347  kubectl get pods -o wide 
+  348  kubectl label nodes worker1 env=prod
+  349  kubectl get pods -o wide 
+  350  kubectl delete deploy helloworld-deployment
+  351  kubectl get pods -o wide 
+  352  kubectl get pods
+  353  kubectl get pods -o wide 
+  354  kubectl scale --replcas=5 deploy helloworld-v2-deployment
+  355  kubectl scale --replicas=5 deploy helloworld-v2-deployment
+  356  kubectl get pods -o wide 
+  357  kubectl scale --replicas=5 deploy helloworld-v3-deployment
+  358  kubectl get pods -o wide 
+  359  kubectl label nodes worker1 env-
+  360  kubectl label nodes worker1 hardware-
+  361  kubectl label nodes worker2 hardware-
+  362  kubectl get nodes --show-labels
+  363  kubectl get pods -o wide 
+  364  kubectl scale --replicas=7 deploy helloworld-v3-deployment
+  365  kubectl scale --replicas=7 deploy helloworld-v2-deployment
+  366  kubectl get pods -o wide 
+  367  ls
+  368  cd ..
+  369  ls
+  370  kubectl delete -f 07-Labels/
+  371  kubectl get pods -o wide 
+  372  ls
+  373  cd ..
+  374  ls
+  375  git add . ; git commit -m "07-Labels"; git push 
