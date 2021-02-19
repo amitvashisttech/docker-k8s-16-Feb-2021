@@ -754,3 +754,180 @@
   754  kubectl delete -f 10-Volumes-Nfs/
   755  ls
   756  history > Day4_History.txt 
+  757  git add . ; git commit -m "10-Volumes-Nfs"; git push 
+  758  ls
+  759  cd ..
+  760  l
+  761  git pull 
+  762  ls
+  763  cd Kubernetes/
+  764  ls
+  765  cd 11-Ingress/
+  766  ls
+  767  ll
+  768  vim nginx-ingress-controller.yaml 
+  769  ls
+  770  cat echoservice.yml 
+  771  kubectl create -f nginx-ingress-controller.yaml 
+  772  kubectl create -f echoservice.yml 
+  773  kubectl get pods 
+  774  kubectl logs nginx-ingress-controller-rkwxk
+  775  kubectl get pods 
+  776  kubectl logs nginx-ingress-controller-rkwxk
+  777  kubectl logs -f nginx-ingress-controller-rkwxk
+  778  kubectl describe nginx-ingress-controller-rkwxk
+  779  kubectl describe pod nginx-ingress-controller-rkwxk
+  780  ls
+  781  cat README.md 
+  782  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
+  783  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+  784  kubectl get pods 
+  785  kubectl delete pod nginx-ingress-controller-rkwxk
+  786  kubectl get pods 
+  787  kubectl logs nginx-ingress-controller-jlhkg
+  788  kubectl get pods 
+  789  kubectl  get svc 
+  790  kubectl get pods 
+  791  kubectl get rc 
+  792  kubectl expose rc nginx-ingress-controller --type=NodePort
+  793  kubectl get svc 
+  794  kubectl get pods,svc  -o wide 
+  795  curl http://18.216.234.168:30325/
+  796  ls
+  797  kubectl create -f helloworld-v1.yml
+  798  kubectl get pods 
+  799  kubectl get pods,svc 
+  800  kubectl create -f helloworld-v2.yml
+  801  kubectl get pods,svc 
+  802  ls
+  803  cat ingress-rules.yaml 
+  804  kubectl get svc 
+  805  kubectl create -f ingress-rules.yaml 
+  806  kubectl get ingress 
+  807  curl http://18.216.234.168:30325/
+  808  cat ingress-rules.yaml 
+  809  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v1.example.com'
+  810  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v2.example.com'
+  811  kubectl get svc 
+  812  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v2.example.com'
+  813  curl http://18.216.234.168:30325
+  814  vim ingress-rules.yaml 
+  815  kubectl get svc 
+  816  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v2.example.com'
+  817  lsl
+  818  ls
+  819  cat README.md 
+  820  kubectl get ingress 
+  821  kubectl describe ingress 
+  822  kubectl get pods
+  823  kubectl get svc 
+  824  kubectl get pods -o widde 
+  825  kubectl get pods -o wide
+  826  ls
+  827  vim helloworld-v1.yml 
+  828  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v2.example.com'
+  829  kubectl get pods 
+  830  kubectl logs pod nginx-ingress-controller-jlhkg
+  831  kubectl logs nginx-ingress-controller-jlhkg
+  832  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v1.example.com'
+  833  kubectl logs nginx-ingress-controller-jlhkg
+  834  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v1.example.com'
+  835  kubectl logs nginx-ingress-controller-jlhkg
+  836  kubectl get svc 
+  837  vim ingress-rules.yaml 
+  838  ls
+  839  kubectl apply -f ingress-rules.yaml 
+  840  kubectl get ingress 
+  841  kubectl describe ingress 
+  842  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v1.example.com'
+  843  curl http://18.216.234.168:30325/ -H 'Host: helloworld-v2.example.com'
+  844  vim ingress-rules.yaml 
+  845  ls
+  846  kubectl delete -f ../11-Ingress/
+  847  ls
+  848  kubectl get pods 
+  849  kubectl create  -f ../11-Ingress/
+  850  kubectl get pods 
+  851  kubectl get svc 
+  852  curl http://18.216.234.168:30325
+  853  curl http://18.216.234.168:30325 -H 'Host: helloworld-v2.example.com'
+  854  kubectl get svc 
+  855  kubectl get pods -o wide 
+  856  curl  192.168.27.21
+  857* curl 172.31.11.15 -
+  858  curl 172.31.11.15 -H 'Host: helloworld-v2.example.com'
+  859  ls
+  860  cd ..
+  861  ls
+  862  cd ..
+  863  ls
+  864  git add . ; git commit -m "11-Ingress"; git push 
+  865  git config --list 
+  866  curl http://18.216.234.168:30325
+  867  curl http://18.216.234.168
+  868  curl http://18.216.234.168 -H 'Host: helloworld-v2.example.com'
+  869  curl http://18.216.234.168 -H 'Host: helloworld-v1.example.com'
+  870  kubectl get svc 
+  871  curl http://18.216.234.168:30325 -H 'Host: helloworld-v1.example.com'
+  872  kubectl get ingress 
+  873  kubectl get pods 
+  874  kubectl run -it ubuntu-test --image=ubuntu:16.04 --restart=Never -- bash
+  875  ls
+  876  kubectl get svc 
+  877  history 
+  878  curl http://18.216.234.168 -H 'host: helloworld-v2.example.com'
+  879  kubectl get svc 
+  880  curl http://18.216.234.168:30325 -H 'host: helloworld-v2.example.com'
+  881  ls
+  882  git pull 
+  883  ls
+  884  mv 17-Helm Kubernetes/12-Helm
+  885  lls
+  886  cd Kubernetes/
+  887  ls
+  888  cd 12-Helm/
+  889  ls
+  890  cat README.md 
+  891  helm repo add azure-marketplace https://marketplace.azurecr.io/helm/v1/repo
+  892  cat README.md 
+  893  helm search repo nginx
+  894  helm install my-nginx-release azure-marketplace/nginx
+  895  kubectl get pods 
+  896  kubectl delete -f ../11-Ingress/
+  897  kubectl get pods 
+  898  kubectl get svc 
+  899  helm list 
+  900  helm uninstall my-nginx-release 
+  901  ls
+  902  cd ..
+  903  ls
+  904  mkdir 13-MyChart
+  905  cd 13-MyChart/
+  906  ls
+  907  helm  mychart 
+  908  helm create mychart 
+  909  lsl
+  910  ls
+  911  cd mychart/
+  912  ls
+  913  ll
+  914  cd templates/
+  915  ls
+  916  cat service.yaml 
+  917  cd ..
+  918  ls
+  919  vim values.yaml 
+  920  ls
+  921  cd ..
+  922  ls
+  923  cd ..
+  924  ls
+  925  cd 13-MyChart/
+  926  ls
+  927  helm install nginx mychart 
+  928  helm list 
+  929  kubectl get pods 
+  930  kubectl get svc 
+  931  cd ..
+  932  ls
+  933  history > Day4_History.txt 
