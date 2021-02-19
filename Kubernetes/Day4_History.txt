@@ -670,3 +670,87 @@
   670  cd ..
   671  ls
   672  history > Day4_History.txt 
+  673  cd ..
+  674  ls
+  675  git add . ; git commit -m "09-ConfigMap"; git push 
+  676  ls
+  677  git pull 
+  678  ls
+  679  cd Kubernetes/
+  680  ls
+  681  10-Volumes-Nfs/
+  682  ls
+  683  cd 10-Volumes-Nfs/
+  684  ls
+  685  cat README.md 
+  686  apt-get install nfs-kernel-server -y
+  687  ls
+  688  mkdir /exports
+  689  ls
+  690  chown nobody:nogroup /exports
+  691  chmod -R 775 /exports
+  692  ls
+  693  vim /etc/exports 
+  694  systemctl restart nfs-kernel-server.service 
+  695  systemctl status  nfs-kernel-server.service 
+  696  showmount -e localhost
+  697  ip addr 
+  698  showmount -e localhost
+  699  netstat -tulnp 
+  700  netstat -tulnp | grep -i nfs 
+  701  cd /exports/
+  702  ls
+  703  cat hello.txt 
+  704  showmount -e localhost
+  705  ip addr 
+  706  ls
+  707  cat hello.txt 
+  708  ls
+  709  cd /root/docker-k8s-16-Feb-2021/Kubernetes/10-Volumes-Nfs/
+  710  ls
+  711  vim pv-nfs.yaml 
+  712  ip addr 
+  713  vim pv-nfs.yaml 
+  714  ls
+  715  kubectl get pv
+  716  kubectl create -f pv-nfs.yaml 
+  717  kubectl get pv 
+  718  vim pvc-nfs.yaml 
+  719  ls
+  720  kubectl create -f pvc-nfs.yaml 
+  721  kubectl get pvc 
+  722  kubectl get pv
+  723  ls
+  724  cat nfs-busybox-rc.yaml 
+  725  kubectl create -f nfs-busybox-rc.yaml 
+  726  kubectl get pods 
+  727  ls
+  728  kubectl  delete -f ../09-ConfigMap/
+  729  kubectl get pods 
+  730  kubectl describe pod nfs-busybox-2-f8ndd
+  731  ls
+  732  cat /exports/index.html 
+  733  > /exports/index.html 
+  734  tail -f /exports/index.html
+  735  ls
+  736  vim web-rc-pvc.yaml 
+  737  ls
+  738  kubectl create -f web-rc-pvc.yaml 
+  739  kubectl create -f nfs-web-svc.yaml
+  740  kubectl get pods 
+  741  kubectl get svc 
+  742  kubectl edit svc nfs-web
+  743  kubectl get svc 
+  744  ls
+  745  kubectl delete -f nfs-busybox-rc.yaml
+  746  kubectl get pods 
+  747  ls
+  748  vim nfs-busybox-rc.yaml 
+  749  ls
+  750  kubectl create -f nfs-busybox-rc.yaml
+  751  kubectl get pods 
+  752  cd ..
+  753  ls
+  754  kubectl delete -f 10-Volumes-Nfs/
+  755  ls
+  756  history > Day4_History.txt 

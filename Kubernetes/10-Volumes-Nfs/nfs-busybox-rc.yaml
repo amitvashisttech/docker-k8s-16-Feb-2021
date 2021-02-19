@@ -4,15 +4,15 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: nfs-busybox-2
+  name: hello-data-dump
 spec:
   replicas: 3
   selector:
-    name: nfs-busybox-2
+    name: hello-data-dump
   template:
     metadata:
       labels:
-        name: nfs-busybox-2
+        name: hello-data-dump
     spec:
       containers:
       - image: busybox
