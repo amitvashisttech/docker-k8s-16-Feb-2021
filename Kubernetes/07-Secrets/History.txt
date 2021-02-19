@@ -1,0 +1,21 @@
+405  kubectl get secrets
+  406  kubectl create -f helloworld-secrets.yaml
+  407  kubectl get secrets
+  408  kubectl describe secrets my-db-secrets
+  409  ls
+  410  vim helloworld-secrets-volumes.yaml
+  411  ls
+  412  kubectl create -f helloworld-secrets-volumes.yaml
+  413  kubectl get pods
+  414  kubectl describe pod helloworld-deployment-64968b454c-999fr
+  415  ls
+  416  kubectl get pods
+  417  kubectl exec -it helloworld-deployment-64968b454c-fdpgg -- /bin/sh
+  418  ls
+  419  kubectl get nodes
+  420  ip addr
+  421  vim /etc/hosts
+  422  ping master
+  423  ping worker1
+  424  ping worker2
+  425  kubectl exec -it helloworld-deployment-64968b454c-fdpgg -- /bin/sh
