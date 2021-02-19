@@ -572,3 +572,53 @@
   572  ls
   573  cd - 
   574  history > Day4_History.txt 
+  575  l
+  576  cd ..
+  577  ls
+  578  git add . ; git commit -m "07-Secrets"; git push 
+  579  git add . 
+  580  git status 
+  581  git add . ; git commit -m "07-Secrets"; git push 
+  582  git config --global user.email "amitvashist7@outlook.com"
+  583  git config --global user.name "Amit"
+  584  git add . ; git commit -m "07-Secrets"; git push 
+  585  ls
+  586  cd Kubernetes/
+  587  ls
+  588  cd ..
+  589  ls
+  590  git pull 
+  591  ls
+  592  cd Kubernetes/
+  593  ls
+  594  cd 08-Wordpress/
+  595  ls
+  596  cat wordpress-secrets.yml 
+  597  echo -n "Password@432!"| base64
+  598  vim wordpress-secrets.yml 
+  599  ls
+  600  cat wordpress-service.yml 
+  601  ls
+  602  vim wordpress-deployment.yml 
+  603  ls
+  604  kubectl create -f ../08-Wordpress
+  605  kubectl get pods,svc,secrets
+  606  kubectl get pods 
+  607  kubectl decribe pod wordpress-deployment-7d4896594c-lg8fb
+  608  kubectl describe pod wordpress-deployment-7d4896594c-lg8fb
+  609  kubectl get pds -o wide 
+  610  kubectl get pods -o wide 
+  611  kubectl get svc -o wide 
+  612  kubectl get pods 
+  613  kubectl logs wordpress-deployment-7d4896594c-lg8fb
+  614  kubectl logs helloworld-deployment-675f75655c-rd94b
+  615  kubectl logs -f  helloworld-deployment-675f75655c-rd94b
+  616  kubectl logs wordpress-deployment-7d4896594c-lg8fb
+  617  kubectl logs wordpress-deployment-7d4896594c-lg8fb -c wordpress
+  618  kubectl logs wordpress-deployment-7d4896594c-lg8fb -c mysql
+  619  kubectl exec -it wordpress-deployment-7d4896594c-lg8fb -c mysql -- mysql -u root -p 
+  620  kubectl exec -it wordpress-deployment-7d4896594c-lg8fb -c wordpress -- bash
+  621  ls
+  622  cd ..
+  623  ls
+  624  history > Day4_History.txt 
