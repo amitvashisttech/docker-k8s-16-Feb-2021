@@ -479,3 +479,96 @@
   479  kubectl delete -f 06-Labels/
   480  ls
   481  history > Day4_History.txt 
+  482  cd ..
+  483  ls
+  484  git add . ; git commit -m "06-Labels"; git push 
+  485  ls
+  486  git pull 
+  487  ls
+  488  cd Kubernetes/
+  489  ls
+  490  cd 07-Secrets
+  491  ls
+  492  cat helloworld-secrets.yaml 
+  493  c d
+  494  ls
+  495  cd 
+  496  ls
+  497  rm -rf *.yaml
+  498  ls
+  499  echo  "AmitVashist" > username.txt 
+  500  echo  -n "AmitVashist" > username.txt 
+  501  echo  -n "AmitVashist" > password.txt 
+  502  echo  -n "Pass@word432!" > password.txt 
+  503  ls
+  504  kubectl create secrets --help
+  505  kubectl create secret generic --help
+  506  kubectl create secret generic my-secret --from-file=username.txt  --from-file=password.txt 
+  507  kubectl get secrets 
+  508  kubectl describe secrets my-secret
+  509  kubectl edit secrets my-secret
+  510  ls
+  511  cd docker-k8s-16-Feb-2021/
+  512  ls
+  513  cd Kubernetes/
+  514  ls
+  515  cd 07-Secrets/
+  516  ls
+  517  cat helloworld-secrets
+  518  cat helloworld-secrets.yaml 
+  519  echo -n "AmitVashist"| base64
+  520  echo -n "Password@432!"| base64
+  521  vim helloworld-secrets.yaml 
+  522  ls
+  523  kubectl create -f helloworld-secrets.yaml 
+  524  kubectl get secrets 
+  525  kubectl describe secrets my-db-secrets
+  526  kubectl edit secrets my-db-secrets
+  527  ls
+  528  vim helloworld-secrets-volumes.yaml 
+  529  kubectl create -f helloworld-secrets-volumes.yaml 
+  530  kubectl get pods 
+  531  kubectl describe pod helloworld-deployment-64968b454c-7qzgd
+  532  ls
+  533  kubectl get pods 
+  534  kubectl exec -it helloworld-deployment-64968b454c-t82kt -- /bin/sh 
+  535  vim /etc/hosts
+  536  ls
+  537  kubectl get nodes -o wide 
+  538  nslookup ip-172-31-11-15
+  539  cat /etc/hosts
+  540  vim /etc/hosts
+  541  ping  ip-172-31-11-15
+  542  kubectl exec -it helloworld-deployment-64968b454c-t82kt -- /bin/sh 
+  543  172.31.11.15 ip-172-31-11-15 172.31.13.160 ip-172-31-13-160 172.31.5.225 ip-172-31-5-225
+  544  kubectl exec -it helloworld-deployment-64968b454c-t82kt -- /bin/sh 
+  545  kubectl get pods 
+  546  kubectl exec -it helloworld-deployment-64968b454c-7qzgd -- /bin/sh 
+  547  kubectl get pods 
+  548  ls
+  549  cd ..
+  550  ls
+  551  history > Day4_History.txt 
+  552  ls
+  553  cd 07-Secrets/
+  554  ls
+  555  vim helloworld-secrets-volumes.yaml 
+  556  kubectl get secrets 
+  557  vim helloworld-secrets-volumes.yaml 
+  558  ls
+  559  kubectl apply -f helloworld-secrets-volumes.yaml
+  560  kubectl get pods 
+  561  kubectl describe pod helloworld-deployment-675f75655c-mxwqx
+  562  kubectl get pods 
+  563  kubectl exec -it helloworld-deployment-675f75655c-2h4bb -- /bin/sh 
+  564  ls
+  565  cp -rf helloworld-secrets-volumes.yaml helloworld-secrets-volumes-optional.yaml 
+  566  ls
+  567  vim helloworld-secrets-volumes.yaml 
+  568  ls
+  569  cd ..
+  570  ls
+  571  cd ..
+  572  ls
+  573  cd - 
+  574  history > Day4_History.txt 
