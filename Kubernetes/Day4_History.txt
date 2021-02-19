@@ -622,3 +622,51 @@
   622  cd ..
   623  ls
   624  history > Day4_History.txt 
+  625  cd ..
+  626  ls
+  627  git add . ; git commit -m "08-Wordpress"; git push 
+  628  git pull 
+  629  ls
+  630  cd Kubernetes/
+  631  ls
+  632  cd 09-ConfigMap/
+  633  ls
+  634  cat reverseproxy.conf 
+  635  ls
+  636  cat ConfigMap.yaml 
+  637  ls
+  638  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml
+  639  ls
+  640  kubectl create -f ConfigMap.yaml
+  641  kubectl delete -f ConfigMap.yaml 
+  642  kubectl create -f ConfigMap.yaml
+  643  kubectl get configmap
+  644  kubectl describe configmap nginx-config
+  645  ls
+  646  vim nginx-pod.yml 
+  647  ls
+  648  kubectl create -f nginx-pod.yml 
+  649  kubectl get pods 
+  650  kubectl delete -f ../08-Wordpress/
+  651  ls
+  652  kubectl get pods 
+  653  kubectl delete deploy helloworld-deployment
+  654  kubectl get pods 
+  655  kubectl describe pod helloworld-nginx
+  656  ls
+  657  cat nginx-service.yaml 
+  658  kubectl apply  -f nginx-service.yaml 
+  659  kubectl get svc 
+  660  kubectl get pods -o wide 
+  661  ls
+  662  kubectl get pods 
+  663  kubectl exec -it helloworld-nginx -c nginx -- bash 
+  664  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  665  kubectl edit configmap 
+  666  kubectl describe configmap 
+  667  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  668  kubectl get pods 
+  669  ls
+  670  cd ..
+  671  ls
+  672  history > Day4_History.txt 
