@@ -1,0 +1,179 @@
+    1  ls
+    2  kubectl create -f 09-Wordpress/wordpress-secrets.yml 
+    3  kubectl get secrets 
+    4  kubectl describe secrets wordpress-secrets
+    5  ls
+    6  kubectl create -f 09-Wordpress/wordpress-deployment.yml 
+    7  kubectl get pods -w
+    8  kubectl get pods 
+    9  kubectl get pods -o wide 
+   10  kubectl descibe pod wordpress-deployment-7d4896594c-m6cc5
+   11  kubectl describe pod wordpress-deployment-7d4896594c-m6cc5
+   12  kubectl get pods -o wide 
+   13  kubectl describe pod wordpress-deployment-7d4896594c-m6cc5
+   14  kubectl get pods 
+   15  kubectl get pods -o wide 
+   16  kubectl get pods 
+   17  kubectl describe pods 
+   18  kubectl get pods 
+   19  kubectl describe pods 
+   20  kubectl get pods 
+   21  kubectl logs pod wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   22  kubectl logs pods wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   23  kubectl logs wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   24  kubectl logs wordpress-deployment-7d4896594c-m6cc5 -c mysql 
+   25  ls
+   26* 
+   27  kubectl delete pod wordpress-deployment-7d4896594c-m6cc5
+   28  kubectl get pods 
+   29  kubectl get pods -o wide 
+   30  kubectl describe pod
+   31  kubectl logs wordpress-deployment-7d4896594c-z9msn -c wordpress
+   32  kubectl describe pod
+   33  kubectl logs wordpress-deployment-7d4896594c-z9msn -c wordpress
+   34  kubectl logs wordpress-deployment-7d4896594c-z9msn -c mysql
+   35  ls
+   36  kubectl create -f 09-Wordpress/wordpress-service.yml 
+   37  kubectl logs wordpress-deployment-7d4896594c-z9msn -c mysql
+   38  ls
+   39  kubectl delete -f 09-Wordpress/
+   40  ls
+   41  echo "Password@123"| base64
+   42  vim 09-Wordpress/wordpress-secrets.yml 
+   43  ls
+   44  kubectl create -f 09-Wordpress/
+   45  kubectl get pods 
+   46  ls
+   47* kubectl log
+   48  kubectl get pods 
+   49  kubectl logs wordpress-deployment-7d4896594c-tb5x9 -c mysql
+   50  echo -n "Password@123"| base64
+   51  echo "Password@123"| base64
+   52  kubectl delete -f 09-Wordpress/
+   53  vim 09-Wordpress/wordpress-secrets.yml 
+   54  kubectl create  -f 09-Wordpress/
+   55  kubectl get pods 
+   56  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c mysql
+   57  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c wordpress
+   58  ls
+   59  kubectl get svc 
+   60  kubectl get pods -o wide 
+   61  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c mysql
+   62  kubectl exec -it wordpress-deployment-7d4896594c-fvw9s -c mysql -- mysql -u root -p 
+   63  ls
+   64  cd 09-Wordpress/
+   65  ls
+   66  history 
+   67  history > History.txt
+   68  vim History.txt 
+   69  ls
+   70  cd ..
+   71  ls
+   72  cd ..
+   73  ls
+   74  git add . ; git commit -m "09-Wordpress" ; git push 
+   75  ls
+   76  kubectl delete -f 07-Kubernetes/09-Wordpress/
+   77  ls
+   78  cd 07-Kubernetes/
+   79  ls
+   80  mkdir 10-Volumes-Nfs
+   81  ls
+   82  cd 10-Volumes-Nfs/
+   83  ls
+   84  echo "Nfs Vol" >> README.md
+   85  cd 
+   86  ls
+   87  cd devops-stackstrom-dxc-2021-Jan-04/
+   88  ls
+   89  git add . ; git commit -m "09-Wordpress" ; git push 
+   90  apt-get install nfs-kernel-server -y 
+   91  mkdir /exports
+   92  chown nobody:nogroup /exports
+   93  echo "/exports  *(rw,sync,no_subtree_check)" >> /etc/exports 
+   94  grep -i exports /etc/exports 
+   95  systemctl restart nfs-kernel-server
+   96  systemctl status  nfs-kernel-server
+   97  showmount -e localhost
+   98  chown nobody:nogroup /exports
+   99  chmod -R 775 /exports
+  100  cd /exports/
+  101  ls
+  102  cat hello.txt 
+  103  ls
+  104  cd 
+  105  ls
+  106  cd devops-stackstrom-dxc-2021-Jan-04/
+  107  ls
+  108  git pull
+  109  ls
+  110  cd 07-Kubernetes/
+  111  ls
+  112  cd 10-Volumes-Nfs/
+  113  ls
+  114  cd ..
+  115  git pull 
+  116  ls
+  117  cd 07-Kubernetes/
+  118  ls
+  119  cd 10-Volumes-Nfs/
+  120  ls
+  121  vim pv-nfs.yaml 
+  122  ls
+  123  kubectl get pv 
+  124  kubectl create pv-nfs.yaml 
+  125  kubectl create -f pv-nfs.yaml 
+  126  kubectl get pv 
+  127  ls
+  128  vim pvc-nfs.yaml 
+  129  ls
+  130  kubectl get pvc 
+  131  kubectl create -f pvc-nfs.yaml 
+  132  kubectl get pvc 
+  133  kubectl get pv
+  134  ls
+  135  vim nfs-busybox-rc.yaml 
+  136  ls
+  137  cat nfs-web-svc.yaml 
+  138  ls
+  139  vim nfs-busybox-rc.yaml 
+  140  ls
+  141  kubectl create -f nfs-busybox-rc.yaml
+  142  kubectl get pods 
+  143  kubectl describe pod nfs-busybox-2-9drzp
+  144  ls
+  145  cd 
+  146  ls
+  147  cd - 
+  148  tail -f  /exports/index.html 
+  149  kubectl get pods -o wide 
+  150  tail -f  /exports/index.html 
+  151  ls
+  152  kubectl delete -f nfs-busybox-rc.yaml
+  153  kubectl get pods 
+  154  ls
+  155  vim web-rc-pvc.yaml 
+  156  ls
+  157  kubectl get pods 
+  158  kubectl create -f web-rc-pvc.yaml
+  159  cat nfs-web-svc.yaml
+  160  kubectl get pods --show-labels
+  161  kubectl create -f nfs-web-svc.yaml 
+  162  kubectl get pods 
+  163  kubectl get svc 
+  164  kubectl edit svc nfs-web
+  165  kubectl get svc 
+  166  kubectl get pods 
+  167  > /exports/index.html 
+  168  echo "Welcome to NFS K8s PV" > /exports/index.html 
+  169  ls
+  170  cd ..
+  171  ls
+  172  kubectl delete -f 10-Volumes-Nfs/
+  173  ls
+  174  cd ..
+  175  ls
+  176  git add . ; git commit -m "10-Volumes-Nfs" ; git push 
+  177  history 
+  178  ls
+  179  history > 07-Kubernetes/10-Volumes-Nfs/History.txt
