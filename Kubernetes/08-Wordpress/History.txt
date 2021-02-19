@@ -1,0 +1,67 @@
+    1  ls
+    2  kubectl create -f 09-Wordpress/wordpress-secrets.yml 
+    3  kubectl get secrets 
+    4  kubectl describe secrets wordpress-secrets
+    5  ls
+    6  kubectl create -f 09-Wordpress/wordpress-deployment.yml 
+    7  kubectl get pods -w
+    8  kubectl get pods 
+    9  kubectl get pods -o wide 
+   10  kubectl descibe pod wordpress-deployment-7d4896594c-m6cc5
+   11  kubectl describe pod wordpress-deployment-7d4896594c-m6cc5
+   12  kubectl get pods -o wide 
+   13  kubectl describe pod wordpress-deployment-7d4896594c-m6cc5
+   14  kubectl get pods 
+   15  kubectl get pods -o wide 
+   16  kubectl get pods 
+   17  kubectl describe pods 
+   18  kubectl get pods 
+   19  kubectl describe pods 
+   20  kubectl get pods 
+   21  kubectl logs pod wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   22  kubectl logs pods wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   23  kubectl logs wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   24  kubectl logs wordpress-deployment-7d4896594c-m6cc5 -c mysql 
+   25  ls
+   26* 
+   27  kubectl delete pod wordpress-deployment-7d4896594c-m6cc5
+   28  kubectl get pods 
+   29  kubectl get pods -o wide 
+   30  kubectl describe pod
+   31  kubectl logs wordpress-deployment-7d4896594c-z9msn -c wordpress
+   32  kubectl describe pod
+   33  kubectl logs wordpress-deployment-7d4896594c-z9msn -c wordpress
+   34  kubectl logs wordpress-deployment-7d4896594c-z9msn -c mysql
+   35  ls
+   36  kubectl create -f 09-Wordpress/wordpress-service.yml 
+   37  kubectl logs wordpress-deployment-7d4896594c-z9msn -c mysql
+   38  ls
+   39  kubectl delete -f 09-Wordpress/
+   40  ls
+   41  echo "Password@123"| base64
+   42  vim 09-Wordpress/wordpress-secrets.yml 
+   43  ls
+   44  kubectl create -f 09-Wordpress/
+   45  kubectl get pods 
+   46  ls
+   47* kubectl log
+   48  kubectl get pods 
+   49  kubectl logs wordpress-deployment-7d4896594c-tb5x9 -c mysql
+   50  echo -n "Password@123"| base64
+   51  echo "Password@123"| base64
+   52  kubectl delete -f 09-Wordpress/
+   53  vim 09-Wordpress/wordpress-secrets.yml 
+   54  kubectl create  -f 09-Wordpress/
+   55  kubectl get pods 
+   56  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c mysql
+   57  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c wordpress
+   58  ls
+   59  kubectl get svc 
+   60  kubectl get pods -o wide 
+   61  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c mysql
+   62  kubectl exec -it wordpress-deployment-7d4896594c-fvw9s -c mysql -- mysql -u root -p 
+   63  ls
+   64  cd 09-Wordpress/
+   65  ls
+   66  history 
+   67  history > History.txt
